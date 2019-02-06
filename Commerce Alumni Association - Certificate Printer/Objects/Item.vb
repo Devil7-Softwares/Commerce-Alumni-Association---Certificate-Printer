@@ -1,4 +1,25 @@
-﻿Imports System.ComponentModel
+﻿'=========================================================================='
+'                                                                          '
+'                    (C) Copyright 2018 Devil7 Softwares.                  '
+'                                                                          '
+' Licensed under the Apache License, Version 2.0 (the "License");          '
+' you may not use this file except in compliance with the License.         '
+' You may obtain a copy of the License at                                  '
+'                                                                          '
+'                http://www.apache.org/licenses/LICENSE-2.0                '
+'                                                                          '
+' Unless required by applicable law or agreed to in writing, software      '
+' distributed under the License is distributed on an "AS IS" BASIS,        '
+' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. '
+' See the License for the specific language governing permissions and      '
+' limitations under the License.                                           '
+'                                                                          '
+' Contributors :                                                           '
+'     Dineshkumar T                                                        '
+'=========================================================================='
+
+Imports System.ComponentModel
+Imports System.Xml.Serialization
 
 Namespace Objects
     Public Class Item
@@ -63,6 +84,36 @@ Namespace Objects
             Me.EndowmentName = ""
             Me.PhotoData = Nothing
         End Sub
+#End Region
+
+#Region "Shared Functions"
+        Public Shared Function SaveToFile(ByVal Filename As String, ByVal List As List(Of Item)) As Boolean
+            Try
+                Using MS As New IO.FileStream(Filename, IO.FileMode.Create)
+                    Dim Serializer As New XmlSerializer(GetType(List(Of Item)))
+                    Serializer.Serialize(MS, List)
+                End Using
+            Catch ex As Exception
+                DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to save list to file!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End Try
+            Return True
+        End Function
+
+        Public Shared Function LoadFromFile(ByVal Filename As String) As List(Of Item)
+            Dim R As New List(Of Item)
+
+            Try
+                Using MS As New IO.MemoryStream(My.Computer.FileSystem.ReadAllBytes(Filename))
+                    Dim Serializer As New XmlSerializer(GetType(List(Of Item)))
+                    R = CType(Serializer.Deserialize(MS), List(Of Item))
+                End Using
+            Catch ex As Exception
+                DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to load list from file!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+            Return R
+        End Function
 #End Region
 
     End Class
