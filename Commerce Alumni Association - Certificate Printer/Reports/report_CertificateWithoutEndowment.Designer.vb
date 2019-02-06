@@ -239,6 +239,7 @@ Partial Public Class report_CertificateWithoutEndowment
         '
         Me.pic_Student.BorderColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(163, Byte), Integer), CType(CType(163, Byte), Integer))
         Me.pic_Student.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageSource", "[Photo]")})
+        Me.pic_Student.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.MiddleCenter
         Me.pic_Student.LocationFloat = New DevExpress.Utils.PointFloat(453.5001!, 246.976!)
         Me.pic_Student.Name = "pic_Student"
         Me.pic_Student.SizeF = New System.Drawing.SizeF(150.0!, 150.0!)
