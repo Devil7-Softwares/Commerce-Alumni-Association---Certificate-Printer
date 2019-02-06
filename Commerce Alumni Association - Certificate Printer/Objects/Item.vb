@@ -43,10 +43,12 @@ Namespace Objects
 #End Region
 
 #Region "Constructors"
-        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Batch As String, ByVal [Class] As String, ByVal EndowmentName As String, ByVal PhotoData As Byte())
+        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Batch As String, ByVal Course As Enums.Course, ByVal Year As Enums.Year, ByVal Shift As Enums.Shift, ByVal EndowmentName As String, ByVal PhotoData As Byte())
             Me.RegNo = RegNo
             Me.Batch = Batch
-            Me.Class = [Class]
+            Me.Course = Course
+            Me.Year = Year
+            Me.Shift = Shift
             Me.EndowmentName = EndowmentName
             Me.PhotoData = PhotoData
         End Sub
@@ -55,7 +57,9 @@ Namespace Objects
             Me.RegNo = ""
             Me.StudentName = ""
             Me.Batch = ""
-            Me.Class = ""
+            Me.Course = Enums.Course.BCOM
+            Me.Year = Enums.Year.PassedOut
+            Me.Shift = Enums.Shift.ShiftI
             Me.EndowmentName = ""
             Me.PhotoData = Nothing
         End Sub
