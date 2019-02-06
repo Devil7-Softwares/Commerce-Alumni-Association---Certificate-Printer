@@ -47,6 +47,8 @@
         Me.cv_List = New DevExpress.XtraGrid.Views.Card.CardView()
         Me.dlg_OpenList = New System.Windows.Forms.OpenFileDialog()
         Me.dlg_SaveList = New System.Windows.Forms.SaveFileDialog()
+        Me.btn_PrintPreview = New DevExpress.XtraBars.BarButtonItem()
+        Me.dlg_SaveExport = New System.Windows.Forms.SaveFileDialog()
         CType(Me.ribbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.menu_Ribbon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gc_List, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,9 +60,9 @@
         '
         Me.ribbonControl.ApplicationButtonDropDownControl = Me.menu_Ribbon
         Me.ribbonControl.ExpandCollapseItem.Id = 0
-        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.btn_List_Add, Me.btn_List_Edit, Me.btn_List_Remove, Me.btn_Export_Print, Me.btn_Export_PDF, Me.btn_Export_Word, Me.btn_Export_JPG, Me.btn_Open, Me.btn_Save, Me.btn_Exit, Me.btn_SaveAs})
+        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.btn_List_Add, Me.btn_List_Edit, Me.btn_List_Remove, Me.btn_Export_Print, Me.btn_Export_PDF, Me.btn_Export_Word, Me.btn_Export_JPG, Me.btn_Open, Me.btn_Save, Me.btn_Exit, Me.btn_SaveAs, Me.btn_PrintPreview})
         Me.ribbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl.MaxItemId = 13
+        Me.ribbonControl.MaxItemId = 14
         Me.ribbonControl.Name = "ribbonControl"
         Me.ribbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rp_Home})
         Me.ribbonControl.ShowCategoryInCaption = False
@@ -177,6 +179,7 @@
         '
         'rpg_Export
         '
+        Me.rpg_Export.ItemLinks.Add(Me.btn_PrintPreview)
         Me.rpg_Export.ItemLinks.Add(Me.btn_Export_Print)
         Me.rpg_Export.ItemLinks.Add(Me.btn_Export_PDF, True)
         Me.rpg_Export.ItemLinks.Add(Me.btn_Export_Word)
@@ -220,6 +223,13 @@
         '
         Me.dlg_SaveList.DefaultExt = "certlist"
         Me.dlg_SaveList.Filter = "Certificate Printer List Files (*.certlist)|*.certlist"
+        '
+        'btn_PrintPreview
+        '
+        Me.btn_PrintPreview.Caption = "Preview"
+        Me.btn_PrintPreview.Id = 13
+        Me.btn_PrintPreview.ImageOptions.SvgImage = CType(resources.GetObject("btn_PrintPreview.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btn_PrintPreview.Name = "btn_PrintPreview"
         '
         'frm_Main
         '
@@ -265,4 +275,6 @@
     Friend WithEvents dlg_OpenList As OpenFileDialog
     Friend WithEvents dlg_SaveList As SaveFileDialog
     Friend WithEvents btn_SaveAs As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btn_PrintPreview As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents dlg_SaveExport As SaveFileDialog
 End Class

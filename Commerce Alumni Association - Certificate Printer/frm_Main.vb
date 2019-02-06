@@ -101,10 +101,29 @@ Partial Public Class frm_Main
             Return New report_CertificateWithEndowment(Data)
         End If
     End Function
+
+    Private Function GetReports() As XtraReport
+        Dim Reports As New List(Of XtraReport)
+        For Each i As Integer In gv_List.GetSelectedRows
+            Reports.Add(GetReport(CType(gv_List.GetRow(i), Objects.Item)))
+        Next
+        For i As Integer = 0 To Reports.Count - 1
+            Dim Report As XtraReport = Reports(i)
+            Report.CreateDocument()
+            If i <> 0 Then
+                Reports(0).ModifyDocument(Sub(x)
+                                              x.AddPages(Report.Pages)
+                                          End Sub)
+            End If
+        Next
+        Reports(0).PrintingSystem.ContinuousPageNumbering = True
+        Return Reports(0)
+    End Function
 #End Region
 
 #Region "Form Events"
     Private Sub frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DevExpress.XtraEditors.XtraMessageBox.SmartTextWrap = True
         gc_List.DataSource = New List(Of Objects.Item)
     End Sub
 #End Region
@@ -197,10 +216,86 @@ OPEN:
     End Sub
 
     Private Sub btn_Export_Print_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_Print.ItemClick
-        If gv_List.SelectedRowsCount = 1 Then
+        If gv_List.SelectedRowsCount > 0 Then
+            GetReports.PrintDialog
+        End If
+    End Sub
+
+    Private Sub btn_PrintPreview_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_PrintPreview.ItemClick
+        If gv_List.SelectedRowsCount = 0 Then
             Dim D As New frm_ReportViewer(GetReport(CType(gv_List.GetRow(gv_List.GetSelectedRows(0)), Objects.Item)))
             D.ShowDialog()
         End If
+    End Sub
+
+    Private Sub btn_Export_PDF_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_PDF.ItemClick
+        Try
+            If gv_List.SelectedRowsCount > 0 Then
+                dlg_SaveExport.DefaultExt = "pdf"
+                dlg_SaveExport.Filter = "Adobe Portable Document Files (*.pdf)|*.pdf"
+
+                If dlg_SaveExport.ShowDialog = DialogResult.OK Then
+                    Dim Options As New DevExpress.XtraPrinting.PdfExportOptions
+                    Options.ConvertImagesToJpeg = False
+                    Options.DocumentOptions.Application = "Devil7 - Certificate Printer"
+                    Options.DocumentOptions.Author = "Department Of Commerce, Government Arts College (Auto), CBE - 18"
+                    Options.DocumentOptions.Producer = "Commerce Alumni Association - Certificate Printer"
+                    Options.DocumentOptions.Subject = "Certificate(s)"
+                    Options.DocumentOptions.Title = "Commerce Alumni Association - Certificate(s)"
+                    Options.ImageQuality = DevExpress.XtraPrinting.PdfJpegImageQuality.Highest
+
+                    GetReports.ExportToPdf(dlg_SaveExport.FileName, Options)
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to export report to pdf!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btn_Export_JPG_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_JPG.ItemClick
+        Try
+            If gv_List.SelectedRowsCount > 0 Then
+                dlg_SaveExport.DefaultExt = "jpeg"
+                dlg_SaveExport.Filter = "JPEG Image Files (*.jpeg)|*.jpeg"
+
+                If dlg_SaveExport.ShowDialog = DialogResult.OK Then
+                    Dim Options As New DevExpress.XtraPrinting.ImageExportOptions
+                    Options.ExportMode = DevExpress.XtraPrinting.ImageExportMode.DifferentFiles
+                    Options.Format = Imaging.ImageFormat.Jpeg
+                    Options.Resolution = 600
+
+                    GetReports.ExportToImage(dlg_SaveExport.FileName, Options)
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to export report to jpeg!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btn_Export_Word_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_Word.ItemClick
+        Try
+            If gv_List.SelectedRowsCount > 0 Then
+                dlg_SaveExport.DefaultExt = "docx"
+                dlg_SaveExport.Filter = "Microsoft Open Document File (*.docx)|*.docx"
+
+                If dlg_SaveExport.ShowDialog = DialogResult.OK Then
+                    Dim Options As New DevExpress.XtraPrinting.DocxExportOptions
+                    Options.DocumentOptions.Author = "Department Of Commerce, Government Arts College (Auto), CBE - 18"
+                    Options.DocumentOptions.Subject = "Certificate(s)"
+                    Options.DocumentOptions.Title = "Commerce Alumni Association - Certificate(s)"
+                    Options.ExportMode = DevExpress.XtraPrinting.DocxExportMode.SingleFilePageByPage
+                    Options.ExportPageBreaks = True
+                    Options.ExportWatermarks = True
+
+                    GetReports.ExportToDocx(dlg_SaveExport.FileName, Options)
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to export report to word document!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 #End Region
 
