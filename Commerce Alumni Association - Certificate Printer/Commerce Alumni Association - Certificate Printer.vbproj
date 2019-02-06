@@ -127,6 +127,7 @@
     <Compile Include="Reports\report_CertificateWithEndowment.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\FileAssociation.vb" />
     <Compile Include="Utils\frm_Splash.designer.vb">
       <DependentUpon>frm_Splash.vb</DependentUpon>
     </Compile>
@@ -193,6 +194,9 @@
     <None Include="Resources\student.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cert-file.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="certificate.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -126,6 +126,8 @@ Partial Public Class frm_Main
         DevExpress.XtraEditors.XtraMessageBox.SmartTextWrap = True
         gc_List.DataSource = New List(Of Objects.Item)
 
+        If Not Utils.FileAssociation.IsAssociated(".certlist") Then Utils.FileAssociation.Associate(".certlist", My.Application.Info.Title, "Certificates List", IO.Path.Combine(Application.StartupPath, "cert-file.ico"), Application.ExecutablePath)
+
         If My.Application.CommandLineArgs.Count > 0 AndAlso My.Computer.FileSystem.FileExists(My.Application.CommandLineArgs(0)) Then
             OpenFile(My.Application.CommandLineArgs(0))
         End If
