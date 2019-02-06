@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{915717EE-CC89-4B09-AC8B-3DC3475B216E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Commerce_Alumni_Association___Certificate_Printer</RootNamespace>
+    <RootNamespace>Devil7.Automation.CertificatePrinter</RootNamespace>
     <AssemblyName>Commerce Alumni Association - Certificate Printer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <StartupObject>Commerce_Alumni_Association___Certificate_Printer.Program</StartupObject>
@@ -40,7 +40,10 @@
     <MyType>WindowsForms</MyType>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Commerce_Alumni_Association___Certificate_Printer.My.MyApplication</StartupObject>
+    <StartupObject>Devil7.Automation.CertificatePrinter.My.MyApplication</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>certificate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2" />
@@ -124,6 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="certificate.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -5,12 +5,12 @@ Imports System.Runtime.InteropServices
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("Commerce_Alumni_Association___Certificate_Printer")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyTitle("Commerce_Alumni_Association - Certificate_Printer")>
+<Assembly: AssemblyDescription("Simple tool to print certificates designed for Commerce Alumni Association, Government Arts College, Coimbatore")>
 <Assembly: AssemblyConfiguration("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Commerce_Alumni_Association___Certificate_Printer")>
-<Assembly: AssemblyCopyright("Copyright ©  2019")>
+<Assembly: AssemblyCompany("Devil7 Softwares")>
+<Assembly: AssemblyProduct("Devil7 Automation")>
+<Assembly: AssemblyCopyright("Copyright © Devil7 Softwares 2019")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>
 
