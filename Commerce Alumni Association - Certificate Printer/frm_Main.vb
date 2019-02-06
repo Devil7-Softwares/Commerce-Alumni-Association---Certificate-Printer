@@ -18,7 +18,14 @@
 '     Dineshkumar T                                                        '
 '=========================================================================='
 
+Imports DevExpress.XtraBars
+
 Partial Public Class frm_Main
+
+#Region "Variables"
+    Dim FileName As String = ""
+    Dim Saved As Boolean = True
+#End Region
 
 #Region "Constructors"
     Shared Sub New()
@@ -39,9 +46,68 @@ Partial Public Class frm_Main
     End Property
 #End Region
 
+#Region "Subs/Functions"
+    Private Sub OpenFile(ByVal Filename As String)
+        gc_List.DataSource = Objects.Item.LoadFromFile(dlg_OpenList.FileName)
+        gc_List.RefreshDataSource()
+        Me.FileName = Filename
+        Me.Saved = True
+    End Sub
+#End Region
+
 #Region "Form Events"
     Private Sub frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         gc_List.DataSource = New List(Of Objects.Item)
+    End Sub
+#End Region
+
+#Region "Application Menu Events"
+    Private Sub btn_Open_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Open.ItemClick
+        If Saved Then
+OPEN:
+            If dlg_OpenList.ShowDialog = DialogResult.OK Then
+                OpenFile(FileName)
+            End If
+        Else
+            Dim Result As DialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("Previous changes are unsaved! Do you want to save the changes..?", "Unsaved!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+            If Result = DialogResult.Yes Then
+                btn_Save.PerformClick()
+                GoTo OPEN
+            ElseIf Result = DialogResult.No Then
+                GoTo OPEN
+            Else
+                Exit Sub
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_Save_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Save.ItemClick
+        If Me.FileName = "" Then
+            If dlg_SaveList.ShowDialog = DialogResult.OK Then
+                Me.FileName = dlg_SaveList.FileName
+            Else
+                Exit Sub
+            End If
+        End If
+
+        If Objects.Item.SaveToFile(Me.FileName, List) Then
+            DevExpress.XtraEditors.XtraMessageBox.Show("Successfully saved file to selected location.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Saved = True
+        End If
+    End Sub
+
+    Private Sub btn_SaveAs_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_SaveAs.ItemClick
+        If dlg_SaveList.ShowDialog = DialogResult.OK Then
+            Me.FileName = dlg_SaveList.FileName
+            If Objects.Item.SaveToFile(Me.FileName, List) Then
+                DevExpress.XtraEditors.XtraMessageBox.Show("Successfully saved file to selected location.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Saved = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_Exit_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Exit.ItemClick
+        Me.Close()
     End Sub
 #End Region
 
@@ -51,6 +117,7 @@ Partial Public Class frm_Main
         If D.ShowDialog = DialogResult.OK Then
             List.Add(D.Item)
             gc_List.RefreshDataSource()
+            Saved = False
         End If
     End Sub
 
@@ -61,6 +128,7 @@ Partial Public Class frm_Main
             If D.ShowDialog = DialogResult.OK Then
                 gc_List.RefreshDataSource()
             End If
+            Saved = False
         End If
     End Sub
 
@@ -75,6 +143,7 @@ Partial Public Class frm_Main
                     List.Remove(Item)
                 Next
                 gc_List.RefreshDataSource()
+                Saved = False
             End If
         End If
     End Sub
