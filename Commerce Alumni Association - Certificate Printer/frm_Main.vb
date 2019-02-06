@@ -125,6 +125,10 @@ Partial Public Class frm_Main
     Private Sub frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DevExpress.XtraEditors.XtraMessageBox.SmartTextWrap = True
         gc_List.DataSource = New List(Of Objects.Item)
+
+        If My.Application.CommandLineArgs.Count > 0 AndAlso My.Computer.FileSystem.FileExists(My.Application.CommandLineArgs(0)) Then
+            OpenFile(My.Application.CommandLineArgs(0))
+        End If
     End Sub
 #End Region
 
