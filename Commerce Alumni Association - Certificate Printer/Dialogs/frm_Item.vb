@@ -43,7 +43,7 @@ Public Class frm_Item
         Next
 
         If DialogMode = Enums.DialogMode.Edit And Item IsNot Nothing Then
-            txt_Batch.SelectedItem = Item.Batch.Split("-".ToCharArray)(0)
+            txt_Batch.SelectedText = Item.Batch.Split("-")(0)
             txt_Course.SelectedIndex = Item.Course
             txt_EndowmentName.Text = Item.EndowmentName
             txt_RegNo.Text = Item.RegNo
@@ -51,11 +51,13 @@ Public Class frm_Item
             txt_StudentName.Text = Item.StudentName
             txt_Year.SelectedIndex = Item.Year
             pic_Photo.Image = Item.Photo
+            txt_Date.DateTime = Item.Date
         Else
             txt_Batch.SelectedIndex = 0
             txt_Course.SelectedIndex = 0
             txt_Shift.SelectedIndex = 0
             txt_Year.SelectedIndex = 0
+            txt_Date.DateTime = Now
         End If
     End Sub
 #End Region
@@ -63,13 +65,22 @@ Public Class frm_Item
 #Region "Button Events"
     Private Sub btn_Done_Click(sender As Object, e As EventArgs) Handles btn_Done.Click
         If Item Is Nothing Then Item = New Objects.Item
-        Item.Batch = String.Format("{0}-{1}", txt_Batch.SelectedItem, CInt(txt_Batch.SelectedItem) + If(txt_Course.SelectedIndex = 0, 3, 2))
+
+        Dim Add As Integer = 0
+        If txt_Year.SelectedIndex = 0 Then
+            Add = If(txt_Course.SelectedIndex = 0, 3, 2)
+        Else
+            Add = 1
+        End If
+
+        Item.Batch = String.Format("{0}-{1}", txt_Batch.SelectedItem, CInt(txt_Batch.SelectedItem) + Add)
         Item.Course = txt_Course.SelectedIndex
         Item.EndowmentName = txt_EndowmentName.Text
         Item.RegNo = txt_RegNo.Text
         Item.Shift = txt_Shift.SelectedIndex
         Item.StudentName = txt_StudentName.Text
         Item.Year = txt_Year.SelectedIndex
+        Item.Date = txt_Date.DateTime
         Using MS As New IO.MemoryStream
             pic_Photo.Image.Save(MS, pic_Photo.Image.RawFormat)
             Item.PhotoData = MS.ToArray

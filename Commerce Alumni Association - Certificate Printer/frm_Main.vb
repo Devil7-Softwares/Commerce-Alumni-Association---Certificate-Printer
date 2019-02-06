@@ -19,6 +19,7 @@
 '=========================================================================='
 
 Imports DevExpress.XtraBars
+Imports DevExpress.XtraReports.UI
 
 Partial Public Class frm_Main
 
@@ -48,11 +49,58 @@ Partial Public Class frm_Main
 
 #Region "Subs/Functions"
     Private Sub OpenFile(ByVal Filename As String)
-        gc_List.DataSource = Objects.Item.LoadFromFile(dlg_OpenList.FileName)
+        gc_List.DataSource = Objects.Item.LoadFromFile(Filename)
         gc_List.RefreshDataSource()
         Me.FileName = Filename
         Me.Saved = True
     End Sub
+
+    Private Function GetReport(ByVal Item As Objects.Item) As XtraReport
+        Dim TmpCourse As String = ""
+        Select Case Item.Course
+            Case Enums.Course.BCOM
+                TmpCourse = "B.Com"
+            Case Enums.Course.MCOM
+                TmpCourse = "M.Com"
+        End Select
+        Dim TmpYear As String = ""
+        Select Case Item.Year
+            Case Enums.Year.PassedOut
+                TmpYear = ""
+            Case Enums.Year.FirstYear
+                TmpYear = "I"
+            Case Enums.Year.SecondYear
+                TmpYear = "II"
+            Case Enums.Year.ThirdYear
+                TmpYear = "III"
+        End Select
+        Dim TmpShift As String = ""
+        Select Case Item.Shift
+            Case Enums.Shift.ShiftI
+                TmpShift = "I-Shift"
+            Case Enums.Shift.ShiftII
+                TmpShift = "II-Shift"
+        End Select
+
+        Dim Course As String = ""
+        If Item.Year = Enums.Year.PassedOut Then
+            Course = TmpCourse
+        Else
+            If Item.Course = Enums.Course.BCOM Then
+                Course = String.Format("{0}-{1} ({2})", TmpYear, TmpCourse, TmpShift)
+            Else
+                Course = String.Format("{0}-{1}", TmpYear, TmpCourse)
+            End If
+        End If
+
+        Dim Data As New data_Certificate(Item.RegNo, Item.StudentName, Item.Batch, Course, TmpCourse, Item.EndowmentName, Item.Photo, Item.Date)
+
+        If Item.EndowmentName = "" Then
+            Return New report_CertificateWithoutEndowment(Data)
+        Else
+            Return New report_CertificateWithEndowment(Data)
+        End If
+    End Function
 #End Region
 
 #Region "Form Events"
@@ -66,7 +114,7 @@ Partial Public Class frm_Main
         If Saved Then
 OPEN:
             If dlg_OpenList.ShowDialog = DialogResult.OK Then
-                OpenFile(FileName)
+                OpenFile(dlg_OpenList.FileName)
             End If
         Else
             Dim Result As DialogResult = DevExpress.XtraEditors.XtraMessageBox.Show("Previous changes are unsaved! Do you want to save the changes..?", "Unsaved!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
@@ -145,6 +193,13 @@ OPEN:
                 gc_List.RefreshDataSource()
                 Saved = False
             End If
+        End If
+    End Sub
+
+    Private Sub btn_Export_Print_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_Print.ItemClick
+        If gv_List.SelectedRowsCount = 1 Then
+            Dim D As New frm_ReportViewer(GetReport(CType(gv_List.GetRow(gv_List.GetSelectedRows(0)), Objects.Item)))
+            D.ShowDialog()
         End If
     End Sub
 #End Region

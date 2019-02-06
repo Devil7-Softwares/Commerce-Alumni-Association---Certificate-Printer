@@ -61,10 +61,12 @@ Namespace Objects
                 Return R
             End Get
         End Property
+
+        Property [Date] As Date
 #End Region
 
 #Region "Constructors"
-        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Batch As String, ByVal Course As Enums.Course, ByVal Year As Enums.Year, ByVal Shift As Enums.Shift, ByVal EndowmentName As String, ByVal PhotoData As Byte())
+        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Batch As String, ByVal Course As Enums.Course, ByVal Year As Enums.Year, ByVal Shift As Enums.Shift, ByVal EndowmentName As String, ByVal PhotoData As Byte(), ByVal [Date] As Date)
             Me.RegNo = RegNo
             Me.Batch = Batch
             Me.Course = Course
@@ -72,6 +74,7 @@ Namespace Objects
             Me.Shift = Shift
             Me.EndowmentName = EndowmentName
             Me.PhotoData = PhotoData
+            Me.date = [Date]
         End Sub
 
         Sub New()
@@ -83,6 +86,7 @@ Namespace Objects
             Me.Shift = Enums.Shift.ShiftI
             Me.EndowmentName = ""
             Me.PhotoData = Nothing
+            Me.Date = Now
         End Sub
 #End Region
 

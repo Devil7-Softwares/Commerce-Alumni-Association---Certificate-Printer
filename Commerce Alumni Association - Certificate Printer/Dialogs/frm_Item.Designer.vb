@@ -48,12 +48,15 @@ Partial Class frm_Item
         Me.txt_Shift = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txt_EndowmentName = New DevExpress.XtraEditors.TextEdit()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.btn_Done = New DevExpress.XtraEditors.SimpleButton()
         Me.pic_Photo = New System.Windows.Forms.PictureBox()
         Me.btn_SelectImage = New DevExpress.XtraEditors.SimpleButton()
         Me.btn_ResetImage = New DevExpress.XtraEditors.SimpleButton()
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.btn_Done = New DevExpress.XtraEditors.SimpleButton()
         Me.dlg_SelectImage = New System.Windows.Forms.OpenFileDialog()
+        Me.LabelControl17 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl18 = New DevExpress.XtraEditors.LabelControl()
+        Me.txt_Date = New DevExpress.XtraEditors.DateEdit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.txt_RegNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txt_StudentName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,9 +66,11 @@ Partial Class frm_Item
         CType(Me.txt_Shift.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txt_EndowmentName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.pic_Photo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.pic_Photo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txt_Date.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txt_Date.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -81,7 +86,7 @@ Partial Class frm_Item
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl5, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl6, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl7, 0, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl8, 0, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl8, 0, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl9, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl10, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl11, 1, 2)
@@ -89,7 +94,7 @@ Partial Class frm_Item
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl13, 1, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl14, 1, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelControl15, 1, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl16, 1, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl16, 1, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.txt_RegNo, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.txt_StudentName, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.txt_Batch, 2, 2)
@@ -97,11 +102,15 @@ Partial Class frm_Item
         Me.TableLayoutPanel1.Controls.Add(Me.txt_Year, 2, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.txt_Shift, 2, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.txt_EndowmentName, 2, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 2, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 2, 8)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl17, 0, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelControl18, 1, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.txt_Date, 2, 7)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 8
+        Me.TableLayoutPanel1.RowCount = 9
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -171,7 +180,7 @@ Partial Class frm_Item
         '
         'LabelControl8
         '
-        Me.LabelControl8.Location = New System.Drawing.Point(3, 185)
+        Me.LabelControl8.Location = New System.Drawing.Point(3, 211)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(28, 13)
         Me.LabelControl8.TabIndex = 7
@@ -235,7 +244,7 @@ Partial Class frm_Item
         '
         'LabelControl16
         '
-        Me.LabelControl16.Location = New System.Drawing.Point(107, 185)
+        Me.LabelControl16.Location = New System.Drawing.Point(107, 211)
         Me.LabelControl16.Name = "LabelControl16"
         Me.LabelControl16.Size = New System.Drawing.Size(4, 13)
         Me.LabelControl16.TabIndex = 15
@@ -244,6 +253,7 @@ Partial Class frm_Item
         'txt_RegNo
         '
         Me.txt_RegNo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_RegNo.EnterMoveNextControl = True
         Me.txt_RegNo.Location = New System.Drawing.Point(117, 3)
         Me.txt_RegNo.Name = "txt_RegNo"
         Me.txt_RegNo.Size = New System.Drawing.Size(348, 20)
@@ -252,6 +262,7 @@ Partial Class frm_Item
         'txt_StudentName
         '
         Me.txt_StudentName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_StudentName.EnterMoveNextControl = True
         Me.txt_StudentName.Location = New System.Drawing.Point(117, 29)
         Me.txt_StudentName.Name = "txt_StudentName"
         Me.txt_StudentName.Size = New System.Drawing.Size(348, 20)
@@ -260,6 +271,7 @@ Partial Class frm_Item
         'txt_Batch
         '
         Me.txt_Batch.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_Batch.EnterMoveNextControl = True
         Me.txt_Batch.Location = New System.Drawing.Point(117, 55)
         Me.txt_Batch.Name = "txt_Batch"
         Me.txt_Batch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -269,6 +281,7 @@ Partial Class frm_Item
         'txt_Course
         '
         Me.txt_Course.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_Course.EnterMoveNextControl = True
         Me.txt_Course.Location = New System.Drawing.Point(117, 81)
         Me.txt_Course.Name = "txt_Course"
         Me.txt_Course.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -279,6 +292,7 @@ Partial Class frm_Item
         'txt_Year
         '
         Me.txt_Year.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_Year.EnterMoveNextControl = True
         Me.txt_Year.Location = New System.Drawing.Point(117, 107)
         Me.txt_Year.Name = "txt_Year"
         Me.txt_Year.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -289,6 +303,7 @@ Partial Class frm_Item
         'txt_Shift
         '
         Me.txt_Shift.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_Shift.EnterMoveNextControl = True
         Me.txt_Shift.Location = New System.Drawing.Point(117, 133)
         Me.txt_Shift.Name = "txt_Shift"
         Me.txt_Shift.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -299,6 +314,7 @@ Partial Class frm_Item
         'txt_EndowmentName
         '
         Me.txt_EndowmentName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_EndowmentName.EnterMoveNextControl = True
         Me.txt_EndowmentName.Location = New System.Drawing.Point(117, 159)
         Me.txt_EndowmentName.Name = "txt_EndowmentName"
         Me.txt_EndowmentName.Size = New System.Drawing.Size(348, 20)
@@ -313,13 +329,45 @@ Partial Class frm_Item
         Me.TableLayoutPanel2.Controls.Add(Me.btn_SelectImage, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.btn_ResetImage, 1, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(117, 185)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(117, 211)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(348, 219)
-        Me.TableLayoutPanel2.TabIndex = 7
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(348, 193)
+        Me.TableLayoutPanel2.TabIndex = 8
+        '
+        'pic_Photo
+        '
+        Me.pic_Photo.BackColor = System.Drawing.Color.White
+        Me.TableLayoutPanel2.SetColumnSpan(Me.pic_Photo, 2)
+        Me.pic_Photo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pic_Photo.Image = Global.Devil7.Automation.CertificatePrinter.My.Resources.Resources.student
+        Me.pic_Photo.Location = New System.Drawing.Point(3, 3)
+        Me.pic_Photo.Name = "pic_Photo"
+        Me.pic_Photo.Size = New System.Drawing.Size(342, 152)
+        Me.pic_Photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pic_Photo.TabIndex = 0
+        Me.pic_Photo.TabStop = False
+        '
+        'btn_SelectImage
+        '
+        Me.btn_SelectImage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_SelectImage.Location = New System.Drawing.Point(3, 161)
+        Me.btn_SelectImage.Name = "btn_SelectImage"
+        Me.btn_SelectImage.Size = New System.Drawing.Size(168, 29)
+        Me.btn_SelectImage.TabIndex = 1
+        Me.btn_SelectImage.Text = "Select Image"
+        '
+        'btn_ResetImage
+        '
+        Me.btn_ResetImage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_ResetImage.Location = New System.Drawing.Point(177, 161)
+        Me.btn_ResetImage.Name = "btn_ResetImage"
+        Me.btn_ResetImage.Size = New System.Drawing.Size(168, 29)
+        Me.btn_ResetImage.TabIndex = 2
+        Me.btn_ResetImage.TabStop = False
+        Me.btn_ResetImage.Text = "Reset Image"
         '
         'PanelControl1
         '
@@ -340,41 +388,41 @@ Partial Class frm_Item
         Me.btn_Done.TabIndex = 0
         Me.btn_Done.Text = "Done"
         '
-        'pic_Photo
-        '
-        Me.pic_Photo.BackColor = System.Drawing.Color.White
-        Me.TableLayoutPanel2.SetColumnSpan(Me.pic_Photo, 2)
-        Me.pic_Photo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pic_Photo.Image = Global.Devil7.Automation.CertificatePrinter.My.Resources.Resources.student
-        Me.pic_Photo.Location = New System.Drawing.Point(3, 3)
-        Me.pic_Photo.Name = "pic_Photo"
-        Me.pic_Photo.Size = New System.Drawing.Size(342, 178)
-        Me.pic_Photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pic_Photo.TabIndex = 0
-        Me.pic_Photo.TabStop = False
-        '
-        'btn_SelectImage
-        '
-        Me.btn_SelectImage.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_SelectImage.Location = New System.Drawing.Point(3, 187)
-        Me.btn_SelectImage.Name = "btn_SelectImage"
-        Me.btn_SelectImage.Size = New System.Drawing.Size(168, 29)
-        Me.btn_SelectImage.TabIndex = 1
-        Me.btn_SelectImage.Text = "Select Image"
-        '
-        'btn_ResetImage
-        '
-        Me.btn_ResetImage.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_ResetImage.Location = New System.Drawing.Point(177, 187)
-        Me.btn_ResetImage.Name = "btn_ResetImage"
-        Me.btn_ResetImage.Size = New System.Drawing.Size(168, 29)
-        Me.btn_ResetImage.TabIndex = 2
-        Me.btn_ResetImage.TabStop = False
-        Me.btn_ResetImage.Text = "Reset Image"
-        '
         'dlg_SelectImage
         '
         Me.dlg_SelectImage.Filter = "Supported Image Formats|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+        '
+        'LabelControl17
+        '
+        Me.LabelControl17.Location = New System.Drawing.Point(3, 185)
+        Me.LabelControl17.Name = "LabelControl17"
+        Me.LabelControl17.Size = New System.Drawing.Size(23, 13)
+        Me.LabelControl17.TabIndex = 16
+        Me.LabelControl17.Text = "Date"
+        '
+        'LabelControl18
+        '
+        Me.LabelControl18.Location = New System.Drawing.Point(107, 185)
+        Me.LabelControl18.Name = "LabelControl18"
+        Me.LabelControl18.Size = New System.Drawing.Size(4, 13)
+        Me.LabelControl18.TabIndex = 17
+        Me.LabelControl18.Text = ":"
+        '
+        'txt_Date
+        '
+        Me.txt_Date.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_Date.EditValue = Nothing
+        Me.txt_Date.EnterMoveNextControl = True
+        Me.txt_Date.Location = New System.Drawing.Point(117, 185)
+        Me.txt_Date.Name = "txt_Date"
+        Me.txt_Date.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txt_Date.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txt_Date.Properties.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.txt_Date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.txt_Date.Properties.EditFormat.FormatString = "dd/MM/yyyy"
+        Me.txt_Date.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.txt_Date.Size = New System.Drawing.Size(348, 20)
+        Me.txt_Date.TabIndex = 7
         '
         'frm_Item
         '
@@ -400,9 +448,11 @@ Partial Class frm_Item
         CType(Me.txt_Shift.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txt_EndowmentName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.pic_Photo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
-        CType(Me.pic_Photo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txt_Date.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txt_Date.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -438,4 +488,7 @@ Partial Class frm_Item
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btn_Done As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dlg_SelectImage As OpenFileDialog
+    Friend WithEvents LabelControl17 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl18 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txt_Date As DevExpress.XtraEditors.DateEdit
 End Class

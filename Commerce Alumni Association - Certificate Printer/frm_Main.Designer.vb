@@ -30,6 +30,7 @@
         Me.menu_Ribbon = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.btn_Open = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_Save = New DevExpress.XtraBars.BarButtonItem()
+        Me.btn_SaveAs = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_Exit = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_List_Add = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_List_Edit = New DevExpress.XtraBars.BarButtonItem()
@@ -46,7 +47,6 @@
         Me.cv_List = New DevExpress.XtraGrid.Views.Card.CardView()
         Me.dlg_OpenList = New System.Windows.Forms.OpenFileDialog()
         Me.dlg_SaveList = New System.Windows.Forms.SaveFileDialog()
-        Me.btn_SaveAs = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ribbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.menu_Ribbon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gc_List, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,6 +94,14 @@
         Me.btn_Save.Id = 10
         Me.btn_Save.ImageOptions.SvgImage = CType(resources.GetObject("btn_Save.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btn_Save.Name = "btn_Save"
+        '
+        'btn_SaveAs
+        '
+        Me.btn_SaveAs.Caption = "Save As"
+        Me.btn_SaveAs.Description = "Save File to Disk with New Name"
+        Me.btn_SaveAs.Id = 12
+        Me.btn_SaveAs.ImageOptions.SvgImage = CType(resources.GetObject("btn_SaveAs.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btn_SaveAs.Name = "btn_SaveAs"
         '
         'btn_Exit
         '
@@ -212,14 +220,6 @@
         '
         Me.dlg_SaveList.DefaultExt = "certlist"
         Me.dlg_SaveList.Filter = "Certificate Printer List Files (*.certlist)|*.certlist"
-        '
-        'btn_SaveAs
-        '
-        Me.btn_SaveAs.Caption = "Save As"
-        Me.btn_SaveAs.Description = "Save File to Disk with New Name"
-        Me.btn_SaveAs.Id = 12
-        Me.btn_SaveAs.ImageOptions.SvgImage = CType(resources.GetObject("btn_SaveAs.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
-        Me.btn_SaveAs.Name = "btn_SaveAs"
         '
         'frm_Main
         '
