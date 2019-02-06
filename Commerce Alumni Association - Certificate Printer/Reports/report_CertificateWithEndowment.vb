@@ -36,13 +36,14 @@ Public Class report_CertificateWithEndowment
     Private Sub pic_Student_BeforePrint(sender As Object, e As PrintEventArgs) Handles pic_Student.BeforePrint
         Dim pictureBox As XRPictureBox = TryCast(sender, XRPictureBox)
         Dim image As Image = pictureBox.Image
-        Dim bmp As Bitmap = New Bitmap(pictureBox.Width, pictureBox.Height)
+        Dim bmp As Bitmap = New Bitmap(pictureBox.Width - 10, pictureBox.Height - 10, Imaging.PixelFormat.Format32bppArgb)
         Dim r As Rectangle = New Rectangle((bmp.Width * 0.1) / 2, (bmp.Height * 0.1) / 2, bmp.Width - (bmp.Width * 0.1), bmp.Height - (bmp.Height * 0.1))
 
         Using g As Graphics = Graphics.FromImage(bmp)
-            g.CompositingQuality = CompositingQuality.HighQuality
             g.InterpolationMode = InterpolationMode.HighQualityBicubic
-            g.SmoothingMode = SmoothingMode.HighQuality
+            g.SmoothingMode = SmoothingMode.AntiAlias
+            g.CompositingQuality = CompositingQuality.HighQuality
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality
 
             Using pen As Pen = New Pen(pictureBox.BorderColor, 5)
                 Dim path As GraphicsPath = New GraphicsPath()
