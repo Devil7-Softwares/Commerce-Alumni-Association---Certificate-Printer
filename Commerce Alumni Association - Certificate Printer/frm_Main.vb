@@ -228,7 +228,7 @@ OPEN:
     End Sub
 
     Private Sub btn_PrintPreview_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_PrintPreview.ItemClick
-        If gv_List.SelectedRowsCount = 0 Then
+        If gv_List.SelectedRowsCount = 1 Then
             Dim D As New frm_ReportViewer(GetReport(CType(gv_List.GetRow(gv_List.GetSelectedRows(0)), Objects.Item)))
             D.ShowDialog()
         End If
