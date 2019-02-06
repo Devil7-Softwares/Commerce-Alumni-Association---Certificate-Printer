@@ -76,6 +76,9 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Course.vb" />
+    <Compile Include="Enums\Shift.vb" />
+    <Compile Include="Enums\Year.vb" />
     <Compile Include="frm_Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +90,7 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Objects\Item.vb" />
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +104,7 @@
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,6 +121,9 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
