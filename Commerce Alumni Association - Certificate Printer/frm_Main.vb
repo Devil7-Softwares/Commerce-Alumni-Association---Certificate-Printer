@@ -2,7 +2,7 @@
 Imports System.Text
 
 
-Partial Public Class Form1
+Partial Public Class frm_Main
     Shared Sub New()
         DevExpress.UserSkins.BonusSkins.Register()
     End Sub
