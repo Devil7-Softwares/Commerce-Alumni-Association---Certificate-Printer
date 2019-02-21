@@ -64,7 +64,7 @@ Partial Public Class report_CertificateWithEndowment
         'XrLabel12
         '
         Me.XrLabel12.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")})
-        Me.XrLabel12.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(445.6875!, 648.9548!)
         Me.XrLabel12.Multiline = True
@@ -82,7 +82,7 @@ Partial Public Class report_CertificateWithEndowment
         Me.XrLabel11.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel11.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel11.BorderWidth = 2.0!
-        Me.XrLabel11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(886.0001!, 626.1957!)
         Me.XrLabel11.Multiline = True
@@ -103,7 +103,7 @@ Partial Public Class report_CertificateWithEndowment
         Me.XrLabel10.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel10.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel10.BorderWidth = 2.0!
-        Me.XrLabel10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(659.6735!, 626.1957!)
         Me.XrLabel10.Multiline = True
@@ -124,13 +124,13 @@ Partial Public Class report_CertificateWithEndowment
         Me.XrLabel9.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel9.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel9.BorderWidth = 2.0!
-        Me.XrLabel9.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(313.5204!, 626.1957!)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(308.3121!, 626.1957!)
         Me.XrLabel9.Multiline = True
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(116.6667!, 23.0!)
         Me.XrLabel9.StylePriority.UseBorderColor = False
         Me.XrLabel9.StylePriority.UseBorders = False
         Me.XrLabel9.StylePriority.UseBorderWidth = False
@@ -145,13 +145,13 @@ Partial Public Class report_CertificateWithEndowment
         Me.XrLabel8.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel8.BorderWidth = 2.0!
-        Me.XrLabel8.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(59.99997!, 626.1957!)
         Me.XrLabel8.Multiline = True
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel8.SizeF = New System.Drawing.SizeF(113.5417!, 23.0!)
         Me.XrLabel8.StylePriority.UseBorderColor = False
         Me.XrLabel8.StylePriority.UseBorders = False
         Me.XrLabel8.StylePriority.UseBorderWidth = False
@@ -163,7 +163,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         'XrRichText1
         '
-        Me.XrRichText1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrRichText1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrRichText1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrRichText1.LocationFloat = New DevExpress.Utils.PointFloat(168.0834!, 468.3926!)
         Me.XrRichText1.Name = "XrRichText1"
@@ -175,7 +175,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         'XrLabel7
         '
-        Me.XrLabel7.Font = New System.Drawing.Font("Century Gothic", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(441.8407!, 216.1844!)
         Me.XrLabel7.Multiline = True
@@ -190,7 +190,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         'XrLabel6
         '
-        Me.XrLabel6.Font = New System.Drawing.Font("Copperplate Gothic Bold", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(273.5146!, 166.7501!)
         Me.XrLabel6.Multiline = True
@@ -206,7 +206,7 @@ Partial Public Class report_CertificateWithEndowment
         'XrLabel5
         '
         Me.XrLabel5.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[RegNo]")})
-        Me.XrLabel5.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(232.6813!, 437.226!)
         Me.XrLabel5.Multiline = True
@@ -222,7 +222,7 @@ Partial Public Class report_CertificateWithEndowment
         'XrLabel4
         '
         Me.XrLabel4.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[StudentName]")})
-        Me.XrLabel4.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(232.6813!, 405.9505!)
         Me.XrLabel4.Multiline = True
@@ -249,7 +249,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         Me.XrLabel3.AutoWidth = True
         Me.XrLabel3.CanShrink = True
-        Me.XrLabel3.Font = New System.Drawing.Font("Copperplate Gothic Light", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(160.0!, 101.1667!)
         Me.XrLabel3.Multiline = True
@@ -266,7 +266,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         Me.XrLabel2.AutoWidth = True
         Me.XrLabel2.CanShrink = True
-        Me.XrLabel2.Font = New System.Drawing.Font("Copperplate Gothic Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(147, Byte), Integer), CType(CType(163, Byte), Integer), CType(CType(163, Byte), Integer))
         Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(160.0!, 63.58333!)
         Me.XrLabel2.Multiline = True
@@ -299,7 +299,7 @@ Partial Public Class report_CertificateWithEndowment
         '
         Me.XrLabel1.AutoWidth = True
         Me.XrLabel1.CanShrink = True
-        Me.XrLabel1.Font = New System.Drawing.Font("Copperplate Gothic Bold", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(107, Byte), Integer))
         Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(160.0!, 25.99998!)
         Me.XrLabel1.Multiline = True
