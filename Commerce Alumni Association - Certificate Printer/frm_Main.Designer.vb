@@ -39,6 +39,10 @@
         Me.btn_Export_PDF = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_Export_Word = New DevExpress.XtraBars.BarButtonItem()
         Me.btn_Export_JPG = New DevExpress.XtraBars.BarButtonItem()
+        Me.btn_PrintPreview = New DevExpress.XtraBars.BarButtonItem()
+        Me.btn_Export_PDF_Separate = New DevExpress.XtraBars.BarButtonItem()
+        Me.btn_Export_JPG_Separate = New DevExpress.XtraBars.BarButtonItem()
+        Me.btn_Export_Word_Separate = New DevExpress.XtraBars.BarButtonItem()
         Me.rp_Home = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.rpg_List = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rpg_Export = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -47,22 +51,28 @@
         Me.cv_List = New DevExpress.XtraGrid.Views.Card.CardView()
         Me.dlg_OpenList = New System.Windows.Forms.OpenFileDialog()
         Me.dlg_SaveList = New System.Windows.Forms.SaveFileDialog()
-        Me.btn_PrintPreview = New DevExpress.XtraBars.BarButtonItem()
         Me.dlg_SaveExport = New System.Windows.Forms.SaveFileDialog()
+        Me.dlg_SaveFolder = New System.Windows.Forms.FolderBrowserDialog()
+        Me.menu_PDF = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.menu_Word = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.menu_JPG = New DevExpress.XtraBars.PopupMenu(Me.components)
         CType(Me.ribbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.menu_Ribbon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gc_List, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gv_List, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cv_List, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.menu_PDF, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.menu_Word, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.menu_JPG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ribbonControl
         '
         Me.ribbonControl.ApplicationButtonDropDownControl = Me.menu_Ribbon
         Me.ribbonControl.ExpandCollapseItem.Id = 0
-        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.btn_List_Add, Me.btn_List_Edit, Me.btn_List_Remove, Me.btn_Export_Print, Me.btn_Export_PDF, Me.btn_Export_Word, Me.btn_Export_JPG, Me.btn_Open, Me.btn_Save, Me.btn_Exit, Me.btn_SaveAs, Me.btn_PrintPreview})
+        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.btn_List_Add, Me.btn_List_Edit, Me.btn_List_Remove, Me.btn_Export_Print, Me.btn_Export_PDF, Me.btn_Export_Word, Me.btn_Export_JPG, Me.btn_Open, Me.btn_Save, Me.btn_Exit, Me.btn_SaveAs, Me.btn_PrintPreview, Me.btn_Export_PDF_Separate, Me.btn_Export_JPG_Separate, Me.btn_Export_Word_Separate})
         Me.ribbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl.MaxItemId = 14
+        Me.ribbonControl.MaxItemId = 17
         Me.ribbonControl.Name = "ribbonControl"
         Me.ribbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rp_Home})
         Me.ribbonControl.ShowCategoryInCaption = False
@@ -143,24 +153,55 @@
         '
         'btn_Export_PDF
         '
+        Me.btn_Export_PDF.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.btn_Export_PDF.Caption = "PDF"
+        Me.btn_Export_PDF.DropDownControl = Me.menu_PDF
         Me.btn_Export_PDF.Id = 5
         Me.btn_Export_PDF.ImageOptions.SvgImage = CType(resources.GetObject("btn_Export_PDF.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btn_Export_PDF.Name = "btn_Export_PDF"
         '
         'btn_Export_Word
         '
+        Me.btn_Export_Word.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.btn_Export_Word.Caption = "Word"
+        Me.btn_Export_Word.DropDownControl = Me.menu_Word
         Me.btn_Export_Word.Id = 6
         Me.btn_Export_Word.ImageOptions.SvgImage = CType(resources.GetObject("btn_Export_Word.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btn_Export_Word.Name = "btn_Export_Word"
         '
         'btn_Export_JPG
         '
+        Me.btn_Export_JPG.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.btn_Export_JPG.Caption = "JPG"
+        Me.btn_Export_JPG.DropDownControl = Me.menu_JPG
         Me.btn_Export_JPG.Id = 7
         Me.btn_Export_JPG.ImageOptions.SvgImage = CType(resources.GetObject("btn_Export_JPG.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btn_Export_JPG.Name = "btn_Export_JPG"
+        '
+        'btn_PrintPreview
+        '
+        Me.btn_PrintPreview.Caption = "Preview"
+        Me.btn_PrintPreview.Id = 13
+        Me.btn_PrintPreview.ImageOptions.SvgImage = CType(resources.GetObject("btn_PrintPreview.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btn_PrintPreview.Name = "btn_PrintPreview"
+        '
+        'btn_Export_PDF_Separate
+        '
+        Me.btn_Export_PDF_Separate.Caption = "Export as Separate PDFs"
+        Me.btn_Export_PDF_Separate.Id = 14
+        Me.btn_Export_PDF_Separate.Name = "btn_Export_PDF_Separate"
+        '
+        'btn_Export_JPG_Separate
+        '
+        Me.btn_Export_JPG_Separate.Caption = "Export as Separate JPGs"
+        Me.btn_Export_JPG_Separate.Id = 15
+        Me.btn_Export_JPG_Separate.Name = "btn_Export_JPG_Separate"
+        '
+        'btn_Export_Word_Separate
+        '
+        Me.btn_Export_Word_Separate.Caption = "Export as Separate Word Documents"
+        Me.btn_Export_Word_Separate.Id = 16
+        Me.btn_Export_Word_Separate.Name = "btn_Export_Word_Separate"
         '
         'rp_Home
         '
@@ -224,12 +265,23 @@
         Me.dlg_SaveList.DefaultExt = "certlist"
         Me.dlg_SaveList.Filter = "Certificate Printer List Files (*.certlist)|*.certlist"
         '
-        'btn_PrintPreview
+        'menu_PDF
         '
-        Me.btn_PrintPreview.Caption = "Preview"
-        Me.btn_PrintPreview.Id = 13
-        Me.btn_PrintPreview.ImageOptions.SvgImage = CType(resources.GetObject("btn_PrintPreview.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
-        Me.btn_PrintPreview.Name = "btn_PrintPreview"
+        Me.menu_PDF.ItemLinks.Add(Me.btn_Export_PDF_Separate)
+        Me.menu_PDF.Name = "menu_PDF"
+        Me.menu_PDF.Ribbon = Me.ribbonControl
+        '
+        'menu_Word
+        '
+        Me.menu_Word.ItemLinks.Add(Me.btn_Export_Word_Separate)
+        Me.menu_Word.Name = "menu_Word"
+        Me.menu_Word.Ribbon = Me.ribbonControl
+        '
+        'menu_JPG
+        '
+        Me.menu_JPG.ItemLinks.Add(Me.btn_Export_JPG_Separate)
+        Me.menu_JPG.Name = "menu_JPG"
+        Me.menu_JPG.Ribbon = Me.ribbonControl
         '
         'frm_Main
         '
@@ -247,6 +299,9 @@
         CType(Me.gc_List, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gv_List, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cv_List, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.menu_PDF, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.menu_Word, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.menu_JPG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -277,4 +332,11 @@
     Friend WithEvents btn_SaveAs As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btn_PrintPreview As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents dlg_SaveExport As SaveFileDialog
+    Friend WithEvents dlg_SaveFolder As FolderBrowserDialog
+    Friend WithEvents btn_Export_PDF_Separate As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btn_Export_JPG_Separate As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btn_Export_Word_Separate As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents menu_PDF As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents menu_Word As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents menu_JPG As DevExpress.XtraBars.PopupMenu
 End Class

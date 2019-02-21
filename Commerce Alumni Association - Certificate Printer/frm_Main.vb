@@ -259,6 +259,29 @@ OPEN:
         End Try
     End Sub
 
+    Private Sub btn_Export_PDF_Separate_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_PDF_Separate.ItemClick
+        If gv_List.SelectedRowsCount > 1 Then
+            If dlg_SaveFolder.ShowDialog = DialogResult.OK Then
+                For Each i As Integer In gv_List.GetSelectedRows
+                    Dim Item As Objects.Item = CType(gv_List.GetRow(i), Objects.Item)
+                    Dim Filename As String = IO.Path.Combine(dlg_SaveFolder.SelectedPath, Item.RegNo & ".pdf")
+
+                    Dim Options As New DevExpress.XtraPrinting.PdfExportOptions
+                    Options.ConvertImagesToJpeg = False
+                    Options.DocumentOptions.Application = "Devil7 - Certificate Printer"
+                    Options.DocumentOptions.Author = "Department Of Commerce, Government Arts College (Auto), CBE - 18"
+                    Options.DocumentOptions.Producer = "Commerce Alumni Association - Certificate Printer"
+                    Options.DocumentOptions.Subject = "Certificate(s)"
+                    Options.DocumentOptions.Title = "Commerce Alumni Association - Certificate(s)"
+                    Options.ImageQuality = DevExpress.XtraPrinting.PdfJpegImageQuality.Highest
+
+                    GetReport(Item).ExportToPdf(Filename, Options)
+                Next
+                DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
     Private Sub btn_Export_JPG_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_JPG.ItemClick
         Try
             If gv_List.SelectedRowsCount > 0 Then
@@ -278,6 +301,25 @@ OPEN:
         Catch ex As Exception
             DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to export report to jpeg!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub btn_Export_JPG_Separate_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_JPG_Separate.ItemClick
+        If gv_List.SelectedRowsCount > 1 Then
+            If dlg_SaveFolder.ShowDialog = DialogResult.OK Then
+                For Each i As Integer In gv_List.GetSelectedRows
+                    Dim Item As Objects.Item = CType(gv_List.GetRow(i), Objects.Item)
+                    Dim Filename As String = IO.Path.Combine(dlg_SaveFolder.SelectedPath, Item.RegNo & ".jpeg")
+
+                    Dim Options As New DevExpress.XtraPrinting.ImageExportOptions
+                    Options.ExportMode = DevExpress.XtraPrinting.ImageExportMode.DifferentFiles
+                    Options.Format = Imaging.ImageFormat.Jpeg
+                    Options.Resolution = 600
+
+                    GetReport(Item).ExportToImage(Filename, Options)
+                Next
+                DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
     End Sub
 
     Private Sub btn_Export_Word_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_Word.ItemClick
@@ -302,6 +344,28 @@ OPEN:
         Catch ex As Exception
             DevExpress.XtraEditors.XtraMessageBox.Show(String.Format("Unable to export report to word document!{0}{0}{1}", vbNewLine, ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub btn_Export_Word_Separate_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btn_Export_Word_Separate.ItemClick
+        If gv_List.SelectedRowsCount > 1 Then
+            If dlg_SaveFolder.ShowDialog = DialogResult.OK Then
+                For Each i As Integer In gv_List.GetSelectedRows
+                    Dim Item As Objects.Item = CType(gv_List.GetRow(i), Objects.Item)
+                    Dim Filename As String = IO.Path.Combine(dlg_SaveFolder.SelectedPath, Item.RegNo & ".docx")
+
+                    Dim Options As New DevExpress.XtraPrinting.DocxExportOptions
+                    Options.DocumentOptions.Author = "Department Of Commerce, Government Arts College (Auto), CBE - 18"
+                    Options.DocumentOptions.Subject = "Certificate(s)"
+                    Options.DocumentOptions.Title = "Commerce Alumni Association - Certificate(s)"
+                    Options.ExportMode = DevExpress.XtraPrinting.DocxExportMode.SingleFilePageByPage
+                    Options.ExportPageBreaks = True
+                    Options.ExportWatermarks = True
+
+                    GetReport(Item).ExportToDocx(Filename, Options)
+                Next
+                DevExpress.XtraEditors.XtraMessageBox.Show("Export completed successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
     End Sub
 #End Region
 
