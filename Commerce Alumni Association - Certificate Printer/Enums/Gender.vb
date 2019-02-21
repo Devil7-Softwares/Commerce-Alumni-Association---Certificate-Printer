@@ -18,51 +18,9 @@
 '     Dineshkumar T                                                        '
 '=========================================================================='
 
-Imports System.ComponentModel
-Imports System.Xml.Serialization
-
-Public Class data_Certificate
-
-#Region "Properties/Fields"
-    <DisplayName("Regisgration Number")>
-    Property RegNo As String
-
-    <DisplayName("Student Name")>
-    Property StudentName As String
-
-    <DisplayName("Batch")>
-    Property Batch As String
-
-    <DisplayName("Course Detail")>
-    Property CourseDetail As String
-
-    <DisplayName("Course Name")>
-    Property CourseName As String
-
-    <DisplayName("Name of the Endowment")>
-    Property EndowmentName As String
-
-    Property Photo As Image
-
-    Property [Date] As Date
-
-    Property GenderID1 As String = "He"
-    Property GenderID2 As String = "He"
-#End Region
-
-#Region "Constructors"
-    Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal GenderID1 As String, ByVal GenderID2 As String, ByVal Batch As String, ByVal CourseDetail As String, ByVal CourseName As String, ByVal EndowmentName As String, ByVal Photo As Image, ByVal [Date] As Date)
-        Me.RegNo = RegNo
-        Me.StudentName = StudentName
-        Me.Batch = Batch
-        Me.CourseDetail = CourseDetail
-        Me.CourseName = CourseName
-        Me.EndowmentName = EndowmentName
-        Me.Photo = Photo
-        Me.Date = [Date]
-        Me.GenderID1 = GenderID1
-        Me.GenderID2 = GenderID2
-    End Sub
-#End Region
-
-End Class
+Namespace Enums
+    Public Enum Gender As Integer
+        Male = 0
+        Female = 1
+    End Enum
+End Namespace

@@ -93,7 +93,7 @@ Partial Public Class frm_Main
             End If
         End If
 
-        Dim Data As New data_Certificate(Item.RegNo, Item.StudentName, Item.Batch, Course, TmpCourse, Item.EndowmentName, Item.Photo, Item.Date)
+        Dim Data As New data_Certificate(Item.RegNo, Item.StudentName, If(Item.Gender = Enums.Gender.Male, "He", "She"), If(Item.Gender = Enums.Gender.Male, "his", "her"), Item.Batch, Course, TmpCourse, Item.EndowmentName, Item.Photo, Item.Date)
 
         If Item.EndowmentName = "" Then
             Return New report_CertificateWithoutEndowment(Data)

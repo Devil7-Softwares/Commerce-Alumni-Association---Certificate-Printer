@@ -104,6 +104,7 @@
     <Compile Include="Dialogs\frm_ReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Enums\Gender.vb" />
     <Compile Include="Enums\Course.vb" />
     <Compile Include="Enums\DialogMode.vb" />
     <Compile Include="Enums\Shift.vb" />

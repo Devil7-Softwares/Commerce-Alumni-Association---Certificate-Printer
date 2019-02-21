@@ -52,12 +52,14 @@ Public Class frm_Item
             txt_Year.SelectedIndex = Item.Year
             pic_Photo.Image = Item.Photo
             txt_Date.DateTime = Item.Date
+            txt_Gender.SelectedIndex = Item.Gender
         Else
             txt_Batch.SelectedIndex = 0
             txt_Course.SelectedIndex = 0
             txt_Shift.SelectedIndex = 0
             txt_Year.SelectedIndex = 0
             txt_Date.DateTime = Now
+            txt_Gender.SelectedIndex = 0
         End If
     End Sub
 #End Region
@@ -81,6 +83,7 @@ Public Class frm_Item
         Item.StudentName = txt_StudentName.Text
         Item.Year = txt_Year.SelectedIndex
         Item.Date = txt_Date.DateTime
+        Item.Gender = txt_Gender.SelectedIndex
         Using MS As New IO.MemoryStream
             pic_Photo.Image.Save(MS, pic_Photo.Image.RawFormat)
             Item.PhotoData = MS.ToArray

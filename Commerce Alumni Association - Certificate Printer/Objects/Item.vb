@@ -31,6 +31,8 @@ Namespace Objects
         <DisplayName("Student Name")>
         Property StudentName As String
 
+        Property Gender As Enums.Gender
+
         <DisplayName("Batch")>
         Property Batch As String
 
@@ -66,7 +68,7 @@ Namespace Objects
 #End Region
 
 #Region "Constructors"
-        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Batch As String, ByVal Course As Enums.Course, ByVal Year As Enums.Year, ByVal Shift As Enums.Shift, ByVal EndowmentName As String, ByVal PhotoData As Byte(), ByVal [Date] As Date)
+        Sub New(ByVal RegNo As String, ByVal StudentName As String, ByVal Gender As Enums.Gender, ByVal Batch As String, ByVal Course As Enums.Course, ByVal Year As Enums.Year, ByVal Shift As Enums.Shift, ByVal EndowmentName As String, ByVal PhotoData As Byte(), ByVal [Date] As Date)
             Me.RegNo = RegNo
             Me.Batch = Batch
             Me.Course = Course
@@ -74,7 +76,8 @@ Namespace Objects
             Me.Shift = Shift
             Me.EndowmentName = EndowmentName
             Me.PhotoData = PhotoData
-            Me.date = [Date]
+            Me.Date = [Date]
+            Me.Gender = Gender
         End Sub
 
         Sub New()
@@ -87,6 +90,7 @@ Namespace Objects
             Me.EndowmentName = ""
             Me.PhotoData = Nothing
             Me.Date = Now
+            Me.Gender = Enums.Gender.Male
         End Sub
 #End Region
 
